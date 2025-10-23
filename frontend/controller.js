@@ -1,5 +1,5 @@
 const app = angular.module("inkMindApp", ["ngRoute"]);
-const server_url = "https://backend-pvsse9b2x-vayuagnay25s-projects.vercel.app"
+const server_url = ""
 
 var userStats = {
   alive: false,
