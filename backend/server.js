@@ -4,11 +4,11 @@ const bodyParser = require("body-parser");
 const User = require("./DataBase");
 const bcrypt = require("bcrypt");
 const cryptoJS = require("crypto-js");
-const app = express();
+const server = express();
 
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname,"../frontend")));
+server.use(express.static(path.join(__dirname,"../frontend")));
 
 const links = [
   "/",
