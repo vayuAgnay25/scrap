@@ -23,7 +23,7 @@ const links = [
 ];
 
 links.forEach((link)=>{
-    app.get((link),(req,res)=>{
+    server.get((link),(req,res)=>{
     res.sendFile(path.join(__dirname,`../frontend/index.html`));
 })
 })
@@ -431,4 +431,4 @@ server.post("/editData", async (req, res) => {
 });
 
 
-module.exports = app;
+module.exports = server;
