@@ -2,5 +2,16 @@
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0"
-  }
+  },
+  "scripts": {
+    "start": "node server",
+    "vercel-start": "node server.js"
+  },
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "nothing",
+  "main": "server.js",
+  "devDependencies": {},
+  "author": "vayuAgnay25",
+  "license": "ISC"
 }
