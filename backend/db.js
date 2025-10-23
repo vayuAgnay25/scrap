@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
 require('dotenv').config();
 // Use an environment variable or default to a local MongoDB instance
-console.log("mongodb+srv://vayuAgnay25:RWc8TnHhrQD6kGrM@vayuagnay25.38jc4kh.mongodb.net/?retryWrites=true&w=majority&appName=vayuAgnay25");
+console.log("");
 
 // Establish the connection  
 mongoose
-  .connect(dbURI)
+  .connect("mongodb+srv://vayuAgnay25:RWc8TnHhrQD6kGrM@vayuagnay25.38jc4kh.mongodb.net/?retryWrites=true&w=majority&appName=vayuAgnay25")
   .then(() => {
     console.log("Database connected successfully");
   })
