@@ -1,8 +1,6 @@
-const express = require("express");
-const server = express();
+const express = require('express');
 const path = require('path');
-
-server.use(express.static(path.join(__dirname,"../../frontend")));
+const app = express();
 
 const links = [
   "/",
@@ -16,14 +14,12 @@ const links = [
   "/signup",
 ];
 
-function renderPage(res, link) {
-  res.sendFile(path.join(__dirname, `../${link.toLowerCase()}.html`));
-}
+app.use(express.static(path.join(__dirname,"../frontend")));
 
-links.forEach((link) => {
-  server.get(`${link.toLowerCase()}`, (req, res) => {
-    renderPage(res, "index");
-  });
-});
+links.forEach((link)=>{
+    app.get((link),(req,res)=>{
+    res.sendFile(path.join(__dirname,`../frontend/index.html`));
+})
+})
 
-module.exports = server;
+module.exports = app;
