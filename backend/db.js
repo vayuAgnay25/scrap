@@ -1,19 +1,28 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 require('dotenv').config();
-// Use an environment variable or default to a local MongoDB instance
-console.log("");
 
-// Establish the connection  
-mongoose
-  .connect("mongodb+srv://vayuAgnay25:RWc8TnHhrQD6kGrM@vayuagnay25.38jc4kh.mongodb.net/?retryWrites=true&w=majority&appName=vayuAgnay25")
-  .then(() => {
-    console.log("Database connected successfully");
-  })
-  .catch((err) => {
-    console.error("Failed to connect to the database: " + err.message);
-    // Optional: Exit the process if the database connection fails
-    // process.exit(1); 
-  });
+let isConnected = false; 
 
-// Export the mongoose connection object if needed elsewhere
-module.exports = mongoose;
+const connectToDatabase = async () => {
+  if (isConnected) {
+    console.log('=> using existing database connection');
+    return;
+  }
+  
+  const uri = process.env.MONGO_DB_URL;
+
+  try {
+    console.log('=> using new database connection');
+    
+    await mongoose.connect(uri, {
+      maxPoolSize: 1
+    });
+
+    isConnected = true;
+  } catch (error) {
+    console.error('MongoDB connection error:', error);
+    throw error; 
+  }
+};
+
+module.exports = connectToDatabase;
